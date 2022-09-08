@@ -11,8 +11,9 @@ class CryptoTableViewCell: UITableViewCell {
     
     
 
-    
-    
+    @IBOutlet weak var cryptoImage: UIImageView!
+    @IBOutlet weak var cryptoCurrencyLabel: UILabel!
+    @IBOutlet weak var cryptoPriceLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

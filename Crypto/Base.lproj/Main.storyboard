@@ -63,6 +63,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                        <connections>
+                                            <outlet property="cryptoCurrencyLabel" destination="iZn-wB-D76" id="aXG-hY-dtL"/>
+                                            <outlet property="cryptoImage" destination="iSl-YX-47H" id="Lso-3A-Nfq"/>
+                                            <outlet property="cryptoPriceLabel" destination="3XL-FQ-CaK" id="ROb-O4-v7b"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
