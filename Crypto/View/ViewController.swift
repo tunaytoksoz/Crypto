@@ -23,16 +23,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func getdata() {
-        let url  = URL(string: "https://api.nomics.com/v1/currencies/ticker?key=41b612bfb14d8a35e691141c77a3036dca42247e&convert=EUR")
+        let url  = URL(string: "https://api.nomics.com/v1/currencies/ticker?key=41b612bfb14d8a35e691141c77a3036dca42247e&convert=USD")
         
         WebService().getCurrencies(url: url!) { cryptos in
             if let cryptos = cryptos {
                 self.cryptoListViewModel = CryptoListViewModel(cryptoCurrencyList: cryptos)
-                
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
-                
             }
         }
     }
@@ -50,8 +48,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.cryptoCurrencyLabel.text = cryptoViewModel.name + " " + cryptoViewModel.currency
         cell.cryptoPriceLabel.text = cryptoViewModel.price
         let urlImage = cryptoViewModel.logo_url
-        cell.cryptoImage.sd_setImage(with: URL(string: urlImage))
+        let transformer = SDImageResizingTransformer(size: CGSize(width: 67, height: 58), scaleMode: .aspectFit)
+        cell.cryptoImage.sd_setImage(with: URL(string: urlImage), placeholderImage: nil, context: [.imageTransformer : transformer])
+        
         return cell
+        
+      
+        
     }
 
 
